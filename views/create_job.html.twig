@@ -1,0 +1,29 @@
+<html>
+<head>
+    <title>Jobs I have had!</title>
+</head>
+<body>
+    {% if jobs is not empty %}
+        <h1>Like These!</h1>
+        <ul>
+          {% for job in jobs %}
+            <li>{{ job.getJobName}}</li>
+          {% endfor %}
+        </ul>
+    {% endif %}
+    <form action='/createjob' method='post'>
+        <label for='jobName'>Job Title</label>
+        <input id='jobName' name='jobName' type='text'>
+        <label for='employer'>Employer</label>
+        <input id='employer' name='employer' type='text'>
+        <label for='timeEmployed'>Time Employed</label>
+        <input id='timeEmployed' name='timeEmployed' type='text'>
+
+        <button type='submit'>Add job</button>
+    </form>
+    <form action='/delete_jobs' method='post'>
+        <button type='submit'>Clear</button>
+    </form>
+
+</body>
+</html>
